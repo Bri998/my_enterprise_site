@@ -1,0 +1,10 @@
+
+services:
+  - type: web
+    name: my-enterprise-site
+    runtime: python
+    buildCommand: "pip install -r requirements.txt && python manage.py migrate"
+    startCommand: "gunicorn my_enterprise_site.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
